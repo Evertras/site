@@ -4,7 +4,3 @@ variable "prefix" {
 
   default = "evertras-com-site"
 }
-
-locals {
-  domain = "evertras.com"
-}
