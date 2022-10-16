@@ -1,3 +1,9 @@
+# Default just downloads everything we might want for now
+.PHONY: default
+default: \
+	bin/terraform \
+	bin/hugo
+
 # For now we only support Linux 64 bit and MacOS for simplicity
 ifeq ($(shell uname), Darwin)
 OS_URL := darwin
