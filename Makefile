@@ -2,7 +2,11 @@
 .PHONY: default
 default: \
 	bin/terraform \
-	bin/hugo
+	bin/hugo \
+	node_modules
+
+lint: node_modules
+	npx prettier --check .
 
 main-serve: bin/hugo
 	cd main && hugo server
@@ -38,3 +42,6 @@ else
 	curl -Lo bin/hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.104.3/hugo_0.104.3_linux-amd64.tar.gz
 endif
 	cd bin && tar -xzvf hugo.tar.gz && rm README.md && rm LICENSE && rm *.tar.gz
+
+node_modules: package-lock.json
+	npm install

@@ -1,0 +1,7 @@
+{
+  "name": "site-tools",
+  "description": "Local dev tools shared across the repo as a whole",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
+}
