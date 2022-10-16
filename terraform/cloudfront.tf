@@ -23,8 +23,8 @@ resource "aws_cloudfront_distribution" "site" {
     target_origin_id       = local.domain
 
     min_ttl     = 0
-    default_ttl = 86400
-    max_ttl     = 31536000
+    default_ttl = 300
+    max_ttl     = 86400
 
     forwarded_values {
       query_string = false
@@ -32,6 +32,13 @@ resource "aws_cloudfront_distribution" "site" {
         forward = "none"
       }
     }
+  }
+
+  custom_error_response {
+    error_code            = 404
+    response_page_path    = "/404.html"
+    response_code         = 404
+    error_caching_min_ttl = 300
   }
 
   aliases = [local.domain]
