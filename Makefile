@@ -8,6 +8,9 @@ default: \
 lint: node_modules
 	npx prettier --check .
 
+lint-fix: node_modules
+	npx prettier --write .
+
 main-serve: bin/hugo
 	cd main && hugo server
 
