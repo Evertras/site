@@ -18,7 +18,7 @@ lint-fix: node_modules
 	npx prettier --write .
 
 main-serve: bin/hugo
-	cd main && hugo server
+	cd main && hugo server --noHTTPCache
 
 # For now we only support Linux 64 bit and MacOS for simplicity
 ifeq ($(shell uname), Darwin)
