@@ -1,0 +1,9 @@
+# For local env vars
+.envrc
+
+# Local tools
+/bin
+
+# Ignore local Terraform state
+.terraform
+
