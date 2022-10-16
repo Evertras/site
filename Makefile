@@ -4,6 +4,9 @@ default: \
 	bin/terraform \
 	bin/hugo
 
+main-serve: bin/hugo
+	cd main && hugo server
+
 # For now we only support Linux 64 bit and MacOS for simplicity
 ifeq ($(shell uname), Darwin)
 OS_URL := darwin
