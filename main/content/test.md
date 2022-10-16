@@ -13,3 +13,8 @@ Some test content
 ## Another header
 
 Oh hey new content
+
+```bash
+# comments
+how about some code
+```

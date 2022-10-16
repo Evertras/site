@@ -1,10 +1,10 @@
 {{ define "main" }}
   <div>
-    <h1>List</h1>
+    <h1 class="title">{{ .Title }}</h1>
 
-    <p>
+    <article class="content">
       {{ .Content }}
-    </p>
+    </article>
 
     <ul>
       {{ range .Pages }}
