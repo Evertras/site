@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <div>
+    <h1 class="title">{{ .Title }}</h1>
+
+    <article class="content">
+      {{ .Content }}
+    </article>
+
+    {{ range .Pages }}
+      <a href="{{ .Permalink }}">
+        <div class="card">
+          <div class="card-content">
+            <div class="subtitle is-4">
+              {{ .PublishDate.Format "2006-01-02" }}
+            </div>
+            <h1 class="title">
+              {{ .Title }}
+            </h1>
+            <p>
+              {{ .Summary }}
+            </p>
+          </div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+{{ end }}
