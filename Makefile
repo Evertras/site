@@ -6,9 +6,15 @@ default: \
 	node_modules
 
 lint: node_modules
+	@echo "===> Checking Terraform..."
+	terraform fmt -check -recursive ./terraform
+	@echo "===> Checking other files..."
 	npx prettier --check .
 
 lint-fix: node_modules
+	@echo "===> Fixing Terraform..."
+	terraform fmt -recursive ./terraform
+	@echo "===> Fixing other files..."
 	npx prettier --write .
 
 main-serve: bin/hugo
