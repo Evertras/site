@@ -5,3 +5,4 @@ title = 'Evertras'
 
 [permalinks]
 blog = '/blog/:year/:month/:day/:slug/'
+projects = '/:sections/:slug/'
