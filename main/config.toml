@@ -1,6 +1,7 @@
 baseURL = 'https://evertras.com'
+enableRobotsTXT = true
 languageCode = 'en-us'
-title = 'Evertras Home'
+title = 'Evertras'
 
 [permalinks]
 blog = '/blog/:year/:month/:day/:slug/'
