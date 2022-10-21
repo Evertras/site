@@ -3,6 +3,10 @@ resource "aws_acm_certificate" "site" {
 
   domain_name = local.domain
 
+  subject_alternative_names = [
+    "*.${local.domain}"
+  ]
+
   validation_method = "DNS"
 
   lifecycle {
