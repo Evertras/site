@@ -38,8 +38,8 @@ resource "aws_cloudfront_distribution" "site" {
 
   custom_error_response {
     error_code            = 404
-    response_page_path    = "/404.html"
-    response_code         = 404
+    response_page_path    = var.is_spa ? "/index.html" : "/404.html"
+    response_code         = var.is_spa ? 200 : 404
     error_caching_min_ttl = 300
   }
 
