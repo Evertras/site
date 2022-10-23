@@ -5,21 +5,25 @@ default: \
 	bin/hugo \
 	node_modules
 
+.PHONY: lint
 lint: node_modules
 	@echo "===> Checking Terraform..."
 	./bin/terraform fmt -check -recursive ./terraform
 	@echo "===> Checking other files..."
 	npx prettier --check .
 
+.PHONY: lint-fix
 lint-fix: node_modules
 	@echo "===> Fixing Terraform..."
 	./bin/terraform fmt -recursive ./terraform
 	@echo "===> Fixing other files..."
 	npx prettier --write .
 
+.PHONY: main-server
 main-serve: bin/hugo
 	cd main && ../bin/hugo server --noHTTPCache
 
+.PHONY: main-build
 main-build: bin/hugo
 	cd main && ../bin/hugo
 
