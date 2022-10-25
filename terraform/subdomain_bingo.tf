@@ -1,4 +1,4 @@
-module "bingo" {
+module "subsite_bingo" {
   source = "./modules/subsite"
 
   subdomain = "bingo"
@@ -8,11 +8,11 @@ module "bingo" {
   hosted_zone_id      = aws_route53_zone.main.zone_id
 }
 
-output "bingo_sync_key_id" {
-  value = module.bingo.sync_key_id
+output "subsite_bingo_sync_key_id" {
+  value = module.subsite_bingo.sync_key_id
 }
 
-output "bingo_sync_key_secret" {
-  value     = module.bingo.sync_key_secret
+output "subsite_bingo_sync_key_secret" {
+  value     = module.subsite_bingo.sync_key_secret
   sensitive = true
 }

@@ -27,6 +27,10 @@ main-serve: bin/hugo
 main-build: bin/hugo
 	cd main && ../bin/hugo
 
+.PHONY: main-build-staging
+main-build-staging: bin/hugo
+	cd main && ../bin/hugo --environment staging
+
 # For now we only support Linux 64 bit and MacOS for simplicity
 ifeq ($(shell uname), Darwin)
 OS_URL := darwin
