@@ -1,5 +1,5 @@
 resource "aws_iam_user" "site_sync" {
-  name = "${var.prefix}-site-sync"
+  name = "${local.prefix}-site-sync"
 }
 
 resource "aws_iam_access_key" "site_sync" {
