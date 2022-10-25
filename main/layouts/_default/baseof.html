@@ -29,7 +29,8 @@
     />
     <title>
       {{ block "title" . }}
-        {{ .Site.Title }}
+        {{ .Site.Title }} -
+        {{ .Page.Title }}
       {{ end }}
     </title>
   </head>
