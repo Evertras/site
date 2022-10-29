@@ -12,8 +12,8 @@ lint: node_modules bin/terraform
 	@echo "===> Checking other files..."
 	npx prettier --check .
 
-.PHONY: lint-fix
-lint-fix: node_modules bin/terraform
+.PHONY: fmt
+fmt: node_modules bin/terraform
 	@echo "===> Fixing Terraform..."
 	./bin/terraform fmt -recursive ./terraform
 	@echo "===> Fixing other files..."
