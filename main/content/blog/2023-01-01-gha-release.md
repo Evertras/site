@@ -6,8 +6,7 @@ summary: "A quick reference of how to deal with releases in Github Actions"
 draft: false
 ---
 
-A quick example/reference for how to deal with [release
-tags](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release)
+A quick example/reference for how to deal with [release tags](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#release)
 in GHA.
 
 ```yaml
