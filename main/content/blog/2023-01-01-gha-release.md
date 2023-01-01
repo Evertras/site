@@ -29,5 +29,36 @@ jobs:
         run: echo ${GITHUB_REF##*/}
 ```
 
-Obviously replace the above with whatever will actually do the release, but
-that's how you get the tags to plug into things like Docker tags and such.
+Some actions might need the environment variable passed in, but doing something
+like `${GITHUB_REF##*/}` isn't parsed by GHA. In this situation, we need to
+pass the environment variable in with an extra intermediate step. Here's an
+example that I used for [cynomys](https://github.com/Evertras/cynomys).
+
+```yaml
+# Reference:
+# https://github.com/marketplace/actions/build-and-push-docker-images
+name: docker
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: evertras
+          password: ${{ secrets.DOCKER_API_KEY }}
+      - name: Set environment variables
+        run: echo "EVERTRAS_PUBLISHED_VERSION=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: evertras/cynomys:${{ env.EVERTRAS_PUBLISHED_VERSION }},evertras/cynomys:latest
+```
