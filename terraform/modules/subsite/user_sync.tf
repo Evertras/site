@@ -16,7 +16,7 @@ resource "aws_iam_user_policy" "site_sync" {
           "s3:DeleteObject",
           "s3:GetBucketLocation",
           "s3:GetObject",
-          "s3:ListObject",
+          "s3:ListBucket",
           "s3:PutObject"
         ]
         Effect = "Allow"
