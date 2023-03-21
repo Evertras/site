@@ -28,10 +28,10 @@ module "subsite_golf_dev" {
 }
 
 output "subsite_golf_dev_sync_key_id" {
-  value = module.subsite_golf.sync_key_id
+  value = module.subsite_golf_dev.sync_key_id
 }
 
 output "subsite_golf_dev_sync_key_secret" {
-  value     = module.subsite_golf.sync_key_secret
+  value     = module.subsite_golf_dev.sync_key_secret
   sensitive = true
 }
