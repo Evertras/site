@@ -1,8 +1,8 @@
 ---
-title: "Doing a quick release with GHA"
+title: "Using release tags in GitHub Actions"
 date: 2023-01-01T12:05:00+09:00
 slug: "gha-release-ref"
-summary: "A quick reference of how to deal with releases in Github Actions"
+summary: "A quick reference of how to deal with releases in GitHub Actions"
 draft: false
 ---
 

@@ -1,8 +1,10 @@
 {{ define "main" }}
   <div>
-    <h1 class="title">Blog</h1>
+    <h1 class="title">The Everblog</h1>
 
-    <article class="content">A blog that no one cares about.</article>
+    <article class="content">
+      A blog with hopefully useful thoughts about software engineering.
+    </article>
 
     {{ range .Pages }}
       <a href="{{ .Permalink }}">
