@@ -49,7 +49,7 @@ endif
 # Terraform manages our infrastructure
 bin/terraform:
 	mkdir -p bin
-	curl -Lo bin/terraform.zip https://releases.hashicorp.com/terraform/1.3.2/terraform_1.3.2_$(OS_URL)_amd64.zip
+	curl -Lo bin/terraform.zip https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_$(OS_URL)_amd64.zip
 	cd bin && unzip terraform.zip
 	rm bin/terraform.zip
 
