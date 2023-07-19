@@ -4,6 +4,24 @@ resource "aws_s3_bucket" "site" {
   tags = local.tags
 }
 
+resource "aws_s3_bucket_ownership_controls" "site" {
+  bucket = aws_s3_bucket.site.id
+
+  rule {
+    # Allows ACLs to be applied
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "site" {
+  bucket = aws_s3_bucket.site.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
 resource "aws_s3_bucket_website_configuration" "site" {
   bucket = aws_s3_bucket.site.bucket
 
@@ -20,6 +38,8 @@ resource "aws_s3_bucket_acl" "site_public_read" {
   bucket = aws_s3_bucket.site.id
 
   acl = "public-read"
+
+  depends_on = [aws_s3_bucket_ownership_controls.site]
 }
 
 resource "aws_s3_bucket_policy" "site_public_read_policy" {
