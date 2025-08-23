@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.16"
+      version = "~> 6.10"
     }
   }
 
@@ -14,7 +14,7 @@ terraform {
     encrypt = true
     profile = "admin"
 
-    dynamodb_table = "evertras-home-terraform-locks"
+    use_lockfile = true
   }
 
   required_version = ">= 1.2.0"
@@ -23,8 +23,6 @@ terraform {
 provider "aws" {
   region  = "ap-northeast-1"
   profile = "admin"
-
-  alias = "main"
 }
 
 provider "aws" {
